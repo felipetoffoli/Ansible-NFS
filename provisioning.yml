@@ -1,4 +1,4 @@
 --- 
 - hosts: all
   task:
-    - shell: ''
+    - shell: 'echo hello > ~/world.txt'
