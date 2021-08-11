@@ -1,5 +1,7 @@
---- 
-- hosts: all
-  task:
-    - shell: 'echo hello > ~/world.txt'
+---
+- name: cluster 02
+  hosts: all
+  remote_user: root
+  tasks:
+  - shell: 'echo hello > ~/world.txt'
   become: yes
