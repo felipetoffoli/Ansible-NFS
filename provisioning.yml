@@ -5,13 +5,13 @@
   tasks:
   - name: 'Instalar client NFS'
     yum: 
-      name: "{{pkg}}"
+      name: "{{ pkg} }"
       state: latest
     become: yes
     with_items: roo
       - 'nfs-utils'
   
-  - name:
+  - name: 'Criar pasta NFS'
     shell: 'mkdir /NFS && mkdir /NFS/HOM && mkdir /NFS/PROD'
   
   - name: Mount an NFS volume
