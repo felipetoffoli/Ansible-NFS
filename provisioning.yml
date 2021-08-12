@@ -8,7 +8,7 @@
       name: "{{ pkg }}"
       state: latest
     become: yes
-    with_items: roo
+    with_items:
       - 'nfs-utils'
   
   - name: 'Criar pasta NFS'
