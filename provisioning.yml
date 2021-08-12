@@ -8,7 +8,7 @@
       name: ['nfs-utils']
   
   - name: 'Criar pasta NFS'
-    shell: 'mkdir /NFS && mkdir /NFS/HOM && mkdir /NFS/PROD'
+    shell: 'mkdir /NFS || true && mkdir /NFS/HOM || true && mkdir /NFS/PROD || true'
   
   - name: Mount an NFS volume
     ansible.posix.mount:
