@@ -5,11 +5,7 @@
   tasks:
   - name: 'Instalar client NFS'
     yum: 
-      name: "{{ item }}"
-      state: latest
-    become: yes
-    with_items:
-      - 'nfs-utils'
+      name: ['nfs-utils']
   
   - name: 'Criar pasta NFS'
     shell: 'mkdir /NFS && mkdir /NFS/HOM && mkdir /NFS/PROD'
