@@ -3,5 +3,22 @@
   hosts: all
   remote_user: root
   tasks:
-  - shell: 'echo hello > ~/world.txt'
-  become: yes
+  - name: 'Instalar client NFS'
+    yum: 
+      name: "{{pkg}}"
+      state: latest
+    become: yes
+    with_items: roo
+      - 'nfs-utils'
+  
+  - name:
+    shell: 'mkdir /NFS && mkdir /NFS/HOM && mkdir /NFS/PROD'
+  
+  - name: Mount an NFS volume
+    ansible.posix.mount:
+      src: 10.100.1.82:/var/public
+      path: /NFS/HOM
+      opts: rw,vers=4,rsize=65535,wsize=65535,hard,proto=tcp,sync,timeo=5,retrans=3
+      state: mounted
+      fstype: nfs
+    become: yes
